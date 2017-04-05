@@ -14,6 +14,7 @@ namespace Bangazon_Terminal_App.consoleapp
 
         public int CustomerId { get; set; }
         public int PaymentId { get; set; }
+        public decimal TotalPrice { get; set; }
 
     }
 }
