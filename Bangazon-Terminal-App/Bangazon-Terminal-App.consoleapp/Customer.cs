@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
+using System.ComponentModel.DataAnnotations;
 
 namespace Bangazon_Terminal_App.consoleapp
 {
@@ -15,14 +16,23 @@ namespace Bangazon_Terminal_App.consoleapp
         IDbConnection _terminalConnection;
 
         public Customer()
-    {
-
+        {
             _terminalConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
-             
-                
-                
-                //  SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+        }    
+            [Key]
+            public int CustomerID { get; set; }
 
+            public string Name { get; set; }
+
+            public string StreetAddress { get; set; }
+            
+            public string City { get; set; }
+
+            public string State { get; set; }
+
+            public int Zip { get; set; }
+
+            public int Phone { get; set; }
+
+        }
     }
-  }
-}
