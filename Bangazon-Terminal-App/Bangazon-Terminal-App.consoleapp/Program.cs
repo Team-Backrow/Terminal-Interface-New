@@ -12,9 +12,19 @@ namespace Bangazon_Terminal_App.consoleapp
         {
             while (true)
             {
-                Console.Write("WELCOME TO BANGAZON!!!");
+                Console.WriteLine("*******************************************************");
+                Console.WriteLine("** WELCOME TO BANGAZON! Command Line Ordering System **");
+                Console.WriteLine("*******************************************************");
 
-                string Command = Console.ReadLine();
+                Console.WriteLine("1.create a customer account");
+                Console.WriteLine("2.choose active customer");
+                Console.WriteLine("3.create a payment option");
+                Console.WriteLine("4.add product to shopping cart");
+                Console.WriteLine("5.complete an order");
+                Console.WriteLine("6.see product popularity");
+                Console.WriteLine("7.leave bangazon!");
+
+               string Command = Console.ReadLine();
 
                 if (Command == "1")
                 {
