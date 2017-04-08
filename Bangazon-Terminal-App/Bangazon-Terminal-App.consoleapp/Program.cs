@@ -29,6 +29,7 @@ namespace Bangazon_Terminal_App.consoleapp
                 if (Command == "1")
                 {
                     //CreateCustomer();
+                    Console.WriteLine("");
                 }
                 else if (Command == "2")
                 {
