@@ -49,6 +49,10 @@
     <Compile Include="DAL\ICustomerStorage.cs" />
     <Compile Include="DAL\IOrderStorage.cs" />
     <Compile Include="DAL\OrderRepository.cs" />
+    <Compile Include="DAL\IPaymentStorage.cs" />
+    <Compile Include="DAL\IProductStorage.cs" />
+    <Compile Include="DAL\PaymentRepository.cs" />
+    <Compile Include="DAL\ProductRepository.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Program.cs" />
