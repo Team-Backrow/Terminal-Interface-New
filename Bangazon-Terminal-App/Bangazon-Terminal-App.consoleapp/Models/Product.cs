@@ -9,20 +9,15 @@ namespace Bangazon_Terminal_App.consoleapp
 {
     class Product
     {
-        [Key]
 
         public int ProductID { get; set; }
 
-        [Required]
         public int PaymentID  {get; set; }
 
-        [Required]
         public int PaymentType  {get; set; }
 
-        [Required]
         public int AccountNo {get; set; }
 
-        [Required]
         public int CustomerID { get; set; }
 
     }
