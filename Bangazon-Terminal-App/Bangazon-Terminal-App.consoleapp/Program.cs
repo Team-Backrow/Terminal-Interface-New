@@ -29,7 +29,18 @@ namespace Bangazon_Terminal_App.consoleapp
                 if (Command == "1")
                 {
                     //CreateCustomer();
-                    Console.WriteLine("");
+                    Console.WriteLine("Enter your name");
+                    Console.ReadLine();
+                    Console.WriteLine("street address");
+                    Console.ReadLine();
+                    Console.WriteLine("city");
+                    Console.ReadLine();
+                    Console.WriteLine("state");
+                    Console.ReadLine();
+                    Console.WriteLine("Postal code");
+                    Console.ReadLine();
+                    Console.WriteLine("Phone number");
+                    Console.ReadLine();
                 }
                 else if (Command == "2")
                 {
