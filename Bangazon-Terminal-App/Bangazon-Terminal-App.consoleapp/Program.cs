@@ -28,6 +28,7 @@ namespace Bangazon_Terminal_App.consoleapp
 
                 if (Command == "1")
                 {
+                    Console.Clear();
                     //CreateCustomer();
                     Console.WriteLine("Enter your name");
                     Console.ReadLine();
