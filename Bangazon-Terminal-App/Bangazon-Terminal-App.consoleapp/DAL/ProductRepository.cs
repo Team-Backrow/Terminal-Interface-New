@@ -1,5 +1,4 @@
-﻿using Bangazon_Terminal_App.consoleapp.DAL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -10,22 +9,21 @@ using System.Threading.Tasks;
 
 namespace Bangazon_Terminal_App.consoleapp.DAL
 {
-    class CustomerRepository : ICustomerStorage
+    class ProductRepository : IProductStorage
     {
-
         IDbConnection _terminalConnection;
 
-        public CustomerRepository()
+        public ProductRepository()
         {
             _terminalConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         }
 
-        public void AddCustomer(int CustomerID)
+        public void AddProduct(int ProductID)
         {
             throw new NotImplementedException();
         }
 
-        public void GetCustomer(int CustomerID)
+        public void GetProduct(int ProductID)
         {
             throw new NotImplementedException();
         }
