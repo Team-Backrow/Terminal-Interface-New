@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Bangazon_Terminal_App.consoleapp.DAL
 {
-    interface BangazonRepository : IRepository
+    interface ICustomerStorage
     {
-
+        void AddCustomer(int CustomerID);
+        void GetCustomer(int CustomerID);
     }
-
 }
