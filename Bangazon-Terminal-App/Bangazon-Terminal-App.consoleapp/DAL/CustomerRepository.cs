@@ -20,9 +20,26 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
             _terminalConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         }
 
-        public void AddCustomer(int CustomerID)
+        
+
+        public void AddCustomer(string Name)
         {
-            throw new NotImplementedException();
+            _terminalConnection.Open();
+
+            try
+            {
+                var addCustomerCommand = _terminalConnection.CreateCommand();
+                addCustomerCommand.CommandText = "Insert into Customer(Name) values(@name)";
+                var nameParameter = new SqlParameter("name", SqlDbType.VarChar);
+                nameParameter.Value = Name;
+                addCustomerCommand.Parameters.Add(nameParameter);
+                addCustomerCommand.ExecuteNonQuery();
+            }
+            finally
+            {
+                _terminalConnection.Close();
+            }
+
         }
 
         public void GetCustomer(int CustomerID)
