@@ -21,9 +21,13 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
         }
 
         
+<<<<<<< HEAD
+        public void AddCustomer(string Name)
+=======
 
         public void AddCustomer( string Name, string StreetAddress, string City, string State, int Zip, int Phone)
 
+>>>>>>> master
         {
             _terminalConnection.Open();
 
