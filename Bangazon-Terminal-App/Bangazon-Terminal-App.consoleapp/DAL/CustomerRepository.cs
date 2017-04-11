@@ -22,17 +22,39 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
 
         
 
-        public void AddCustomer(string Name)
+        public void AddCustomer(string Name, string StreetAddress, string City, string State, int Zip, int Phone)
         {
             _terminalConnection.Open();
 
             try
             {
                 var addCustomerCommand = _terminalConnection.CreateCommand();
-                addCustomerCommand.CommandText = "Insert into Customer(Name) values(@name)";
+                addCustomerCommand.CommandText = "Insert into Customer(Name, StreetAddress, City, State, Zip, Phone ) values(@name, @streetaddress, @city, @state, @zip, @phone)";
+
                 var nameParameter = new SqlParameter("name", SqlDbType.VarChar);
                 nameParameter.Value = Name;
                 addCustomerCommand.Parameters.Add(nameParameter);
+                
+                var streetAddressParameter = new SqlParameter("address", SqlDbType.VarChar);
+                streetAddressParameter.Value = StreetAddress;
+                addCustomerCommand.Parameters.Add(streetAddressParameter);
+            
+                var cityParameter = new SqlParameter("city", SqlDbType.VarChar);
+                cityParameter.Value = City;
+                addCustomerCommand.Parameters.Add(cityParameter);
+
+                var stateParameter = new SqlParameter("state", SqlDbType.VarChar);
+                stateParameter.Value = State;
+                addCustomerCommand.Parameters.Add(stateParameter);
+
+                var zipParameter = new SqlParameter("zip", SqlDbType.Int);
+                zipParameter.Value = Zip;
+                addCustomerCommand.Parameters.Add(zipParameter);
+
+                var phoneParameter = new SqlParameter("phone", SqlDbType.Int);
+                phoneParameter.Value = Phone;
+                addCustomerCommand.Parameters.Add(phoneParameter);
+
                 addCustomerCommand.ExecuteNonQuery();
             }
             finally
