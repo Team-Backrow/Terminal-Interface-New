@@ -20,14 +20,9 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
             _terminalConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         }
 
-        
-<<<<<<< HEAD
-        public void AddCustomer(string Name)
-=======
 
         public void AddCustomer( string Name, string StreetAddress, string City, string State, int Zip, int Phone)
 
->>>>>>> master
         {
             _terminalConnection.Open();
 
