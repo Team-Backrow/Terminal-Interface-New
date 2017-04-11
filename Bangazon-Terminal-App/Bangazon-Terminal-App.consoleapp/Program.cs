@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bangazon_Terminal_App.consoleapp.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,11 +30,14 @@ namespace Bangazon_Terminal_App.consoleapp
                 if (Command == "1")
                 {
                     Console.Clear();
-
-                    //CreateCustomer();
+                    var customerRepository = new CustomerRepository();
+                    //AddCustomer();
 
                     Console.WriteLine("Enter your name");
-                    Console.ReadLine();
+                    var CustomerName = Console.ReadLine();
+                    customerRepository.AddCustomer(CustomerName);
+
+
                     Console.WriteLine("Street address");
                     Console.ReadLine();
                     Console.WriteLine("City");
