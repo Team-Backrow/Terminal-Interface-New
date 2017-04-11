@@ -20,21 +20,16 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
             _terminalConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         }
 
-        
-<<<<<<< HEAD
-        public void AddCustomer(string Name)
-=======
 
-        public void AddCustomer( string Name, string StreetAddress, string City, string State, int Zip/*, int Phone*/ )
+        public void AddCustomer( string Name, string StreetAddress, string City, string State, int Zip, int Phone)
 
->>>>>>> master
         {
             _terminalConnection.Open();
 
             try
             {
                 var addCustomerCommand = _terminalConnection.CreateCommand();
-                addCustomerCommand.CommandText = "Insert into Customer(Name, StreetAddress, City, State, Zip/*, Phone*/) values(@name, @address, @city, @state, @zip/*, @phone*/)";
+                addCustomerCommand.CommandText = "Insert into Customer(Name, StreetAddress, City, State, Zip, Phone) values(@name, @address, @city, @state, @zip, @phone)";
 
 
                 var nameParameter = new SqlParameter("name", SqlDbType.VarChar);
@@ -57,9 +52,9 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
                 zipParameter.Value = Zip;
                 addCustomerCommand.Parameters.Add(zipParameter);
 
-                //var phoneParameter = new SqlParameter("phone", SqlDbType.Int);
-                //phoneParameter.Value = Phone;
-                //addCustomerCommand.Parameters.Add(phoneParameter);
+                var phoneParameter = new SqlParameter("phone", SqlDbType.Int);
+                phoneParameter.Value = Phone;
+                addCustomerCommand.Parameters.Add(phoneParameter);
 
                 addCustomerCommand.ExecuteNonQuery();
             }
