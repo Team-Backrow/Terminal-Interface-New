@@ -47,6 +47,8 @@
   <ItemGroup>
     <Compile Include="DAL\CustomerRepository.cs" />
     <Compile Include="DAL\ICustomerStorage.cs" />
+    <Compile Include="DAL\IOrderLineItemRepository.cs" />
+    <Compile Include="DAL\IOrderLineItemStorage.cs" />
     <Compile Include="DAL\IOrderStorage.cs" />
     <Compile Include="DAL\OrderRepository.cs" />
     <Compile Include="DAL\IPaymentStorage.cs" />
@@ -61,7 +63,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

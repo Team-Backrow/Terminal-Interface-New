@@ -23,6 +23,7 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
         
 
         public void AddCustomer( string Name, string StreetAddress, string City, string State, int Zip/*, int Phone*/ )
+
         {
             _terminalConnection.Open();
 
@@ -30,6 +31,7 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
             {
                 var addCustomerCommand = _terminalConnection.CreateCommand();
                 addCustomerCommand.CommandText = "Insert into Customer(Name, StreetAddress, City, State, Zip/*, Phone*/) values(@name, @address, @city, @state, @zip/*, @phone*/)";
+
 
                 var nameParameter = new SqlParameter("name", SqlDbType.VarChar);
                 nameParameter.Value = Name;

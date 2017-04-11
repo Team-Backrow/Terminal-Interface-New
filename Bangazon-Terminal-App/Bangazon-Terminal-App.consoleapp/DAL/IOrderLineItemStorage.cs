@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Bangazon_Terminal_App.consoleapp.DAL
 {
-    class IOrderLineItemStorage
-    {
+    interface IOrderLineItemStorage
+    { 
+        void AddOrderLineItem(int OrderLineItemID);
+        void GetOrderLineItem(int OrderLineItemID);
     }
 }
