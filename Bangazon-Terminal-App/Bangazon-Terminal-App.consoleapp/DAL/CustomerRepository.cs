@@ -21,7 +21,6 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
         }
 
         
-
         public void AddCustomer(string Name)
         {
             _terminalConnection.Open();
