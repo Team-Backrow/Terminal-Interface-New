@@ -8,7 +8,7 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
 {
     interface ICustomerStorage
     {
-        void AddCustomer( string Name, string StreetAddress, string City, string State, int Zip/*, int Phone*/);
+        void AddCustomer( string Name, string StreetAddress, string City, string State, int Zip, int Phone);
 
         void GetCustomer(int CustomerID);
     }

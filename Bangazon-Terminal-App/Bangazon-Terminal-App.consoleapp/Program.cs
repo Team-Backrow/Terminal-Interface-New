@@ -47,10 +47,10 @@ namespace Bangazon_Terminal_App.consoleapp
                     Console.WriteLine("Postal code");
                     var CustomerZip = int.Parse(Console.ReadLine());
 
-                    //Console.WriteLine("Phone number");
-                    //var CustomerPhone = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Phone number");
+                    var CustomerPhone = int.Parse(Console.ReadLine());
 
-                    customerRepository.AddCustomer(CustomerName, CustomerAddress, CustomerCity, CustomerState, CustomerZip /*CustomerPhone*/);
+                    customerRepository.AddCustomer(CustomerName, CustomerAddress, CustomerCity, CustomerState, CustomerZip, CustomerPhone);
 
                 }
                 else if (Command == "2")
