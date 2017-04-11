@@ -35,19 +35,18 @@ namespace Bangazon_Terminal_App.consoleapp
 
                     Console.WriteLine("Enter your name");
                     var CustomerName = Console.ReadLine();
-                    customerRepository.AddCustomer(CustomerName);
-
 
                     Console.WriteLine("Street address");
-                    Console.ReadLine();
+                    var CustomerAddress = Console.ReadLine();
                     Console.WriteLine("City");
-                    Console.ReadLine();
+                    var CustomerCity = Console.ReadLine();
                     Console.WriteLine("State");
-                    Console.ReadLine();
+                    var CustomerState = Console.ReadLine();
                     Console.WriteLine("Postal code");
-                    Console.ReadLine();
+                    var CustomerZip = int.Parse(Console.ReadLine());
                     Console.WriteLine("Phone number");
-                    Console.ReadLine();
+                    var CustomerPhone = int.Parse(Console.ReadLine());
+                    customerRepository.AddCustomer(CustomerName, CustomerAddress, CustomerCity, CustomerState, CustomerZip, CustomerPhone);
                 }
                 else if (Command == "2")
                 {
