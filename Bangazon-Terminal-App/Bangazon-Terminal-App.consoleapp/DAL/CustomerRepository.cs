@@ -22,23 +22,25 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
 
         
 
-        public void AddCustomer(string Name, string StreetAddress, string City, string State, int Zip, int Phone)
+        public void AddCustomer( string Name, string StreetAddress, string City, string State, int Zip/*, int Phone*/ )
+
         {
             _terminalConnection.Open();
 
             try
             {
                 var addCustomerCommand = _terminalConnection.CreateCommand();
-                addCustomerCommand.CommandText = "Insert into Customer(Name, StreetAddress, City, State, Zip, Phone ) values(@name, @streetaddress, @city, @state, @zip, @phone)";
+                addCustomerCommand.CommandText = "Insert into Customer(Name, StreetAddress, City, State, Zip/*, Phone*/) values(@name, @address, @city, @state, @zip/*, @phone*/)";
+
 
                 var nameParameter = new SqlParameter("name", SqlDbType.VarChar);
                 nameParameter.Value = Name;
                 addCustomerCommand.Parameters.Add(nameParameter);
-                
-                var streetAddressParameter = new SqlParameter("address", SqlDbType.VarChar);
-                streetAddressParameter.Value = StreetAddress;
-                addCustomerCommand.Parameters.Add(streetAddressParameter);
-            
+
+                var addressParameter = new SqlParameter("address", SqlDbType.VarChar);
+                addressParameter.Value = StreetAddress;
+                addCustomerCommand.Parameters.Add(addressParameter);
+
                 var cityParameter = new SqlParameter("city", SqlDbType.VarChar);
                 cityParameter.Value = City;
                 addCustomerCommand.Parameters.Add(cityParameter);
@@ -51,9 +53,9 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
                 zipParameter.Value = Zip;
                 addCustomerCommand.Parameters.Add(zipParameter);
 
-                var phoneParameter = new SqlParameter("phone", SqlDbType.Int);
-                phoneParameter.Value = Phone;
-                addCustomerCommand.Parameters.Add(phoneParameter);
+                //var phoneParameter = new SqlParameter("phone", SqlDbType.Int);
+                //phoneParameter.Value = Phone;
+                //addCustomerCommand.Parameters.Add(phoneParameter);
 
                 addCustomerCommand.ExecuteNonQuery();
             }

@@ -31,22 +31,27 @@ namespace Bangazon_Terminal_App.consoleapp
                 {
                     Console.Clear();
                     var customerRepository = new CustomerRepository();
-                    //AddCustomer();
 
                     Console.WriteLine("Enter your name");
                     var CustomerName = Console.ReadLine();
 
                     Console.WriteLine("Street address");
                     var CustomerAddress = Console.ReadLine();
+
                     Console.WriteLine("City");
                     var CustomerCity = Console.ReadLine();
+
                     Console.WriteLine("State");
                     var CustomerState = Console.ReadLine();
+
                     Console.WriteLine("Postal code");
                     var CustomerZip = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Phone number");
-                    var CustomerPhone = int.Parse(Console.ReadLine());
-                    customerRepository.AddCustomer(CustomerName, CustomerAddress, CustomerCity, CustomerState, CustomerZip, CustomerPhone);
+
+                    //Console.WriteLine("Phone number");
+                    //var CustomerPhone = int.Parse(Console.ReadLine());
+
+                    customerRepository.AddCustomer(CustomerName, CustomerAddress, CustomerCity, CustomerState, CustomerZip /*CustomerPhone*/);
+
                 }
                 else if (Command == "2")
                 {
