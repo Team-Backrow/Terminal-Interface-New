@@ -60,6 +60,16 @@ namespace Bangazon_Terminal_App.consoleapp
                 else if (Command == "3")
                 {
                     //AddPayment();
+                    Console.Clear();
+                    var paymentRepository = new PaymentRepository();
+
+                    Console.WriteLine("Enter your payment type (i.e. credit/debit card)");
+                    var PaymentType = Console.ReadLine();
+
+                    Console.WriteLine("Enter Account Number");
+                    var AccountNumber = Console.ReadLine();
+
+                    paymentRepository.AddPayment(PaymentType, AccountNumber);
                 }
                 else if (Command == "4")
                 {
