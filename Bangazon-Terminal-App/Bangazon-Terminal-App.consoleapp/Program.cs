@@ -105,13 +105,13 @@ namespace Bangazon_Terminal_App.consoleapp
                         if (keyInfo.Key == ConsoleKey.Enter)
                         {
                             Console.Clear();
-                            Console.WriteLine("Welcome" + selectedCustomer.Name);
+                            Console.WriteLine("Welcome, " + selectedCustomer.Name + " Choose an option below!");
                             continueLooping = false;
                         }
                   }
 
-                    Console.WriteLine("outside loop test");
-                    Console.Clear();
+                    Console.WriteLine(" ");
+                    
                 }
                 else if (Command == "3")
                 {
