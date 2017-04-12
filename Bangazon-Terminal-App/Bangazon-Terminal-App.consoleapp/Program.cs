@@ -55,7 +55,20 @@ namespace Bangazon_Terminal_App.consoleapp
                 }
                 else if (Command == "2")
                 {
-                    //Command = GetCustomer();
+                    var customerRepository = new CustomerRepository();
+                    
+                    Console.Clear();
+                    Console.WriteLine("Choose which customer will be active.");
+                    customerRepository.GetCustomers();
+
+                    var customerCollection = customerRepository.GetCustomers();
+                    
+                    foreach (var bangazonner in customerCollection)
+                    {
+                        Console.WriteLine(bangazonner.Name);
+                    }
+
+
                 }
                 else if (Command == "3")
                 {

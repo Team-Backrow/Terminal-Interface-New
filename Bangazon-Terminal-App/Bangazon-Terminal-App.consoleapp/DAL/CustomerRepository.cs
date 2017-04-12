@@ -65,9 +65,34 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
 
         }
 
-        public void GetCustomer(int CustomerID)
+        public List<Customer> GetCustomers()
         {
-            throw new NotImplementedException();
+            _terminalConnection.Open();
+
+            try
+            {
+                var getCustomerCommand = _terminalConnection.CreateCommand();
+                getCustomerCommand.CommandText = "SELECT CustomerID,Name FROM Customer";
+
+                var reader = getCustomerCommand.ExecuteReader();
+
+                var customerList = new List<Customer>();
+                while (reader.Read())
+                {
+                    var customer = new Customer
+                    {
+                        CustomerID = reader.GetInt32(0),
+                        Name = reader.GetString(1)
+                    };
+                    customerList.Add(customer);
+                }
+                return customerList;
+            }
+            finally
+            {
+                _terminalConnection.Close();
+            }
+
         }
     }
 }
