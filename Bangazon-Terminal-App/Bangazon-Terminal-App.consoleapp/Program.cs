@@ -62,13 +62,56 @@ namespace Bangazon_Terminal_App.consoleapp
                     customerRepository.GetCustomers();
 
                     var customerCollection = customerRepository.GetCustomers();
-                    
+
+                    var cursorIndex = 0;
+                    var continueLooping = true;
+
+                    ConsoleKeyInfo keyInfo = new ConsoleKeyInfo();
+                    while (continueLooping)
+                    {
+                        int counter = 0;
+
+                        Console.Clear();
+
+                        Console.WriteLine(!(keyInfo.KeyChar.Equals(ConsoleKey.Enter)));
+
+                        Customer selectedCustomer = null;
                     foreach (var bangazonner in customerCollection)
                     {
-                        Console.WriteLine(bangazonner.Name);
+                            if (counter == cursorIndex)
+                            {
+                                Console.WriteLine(">" + bangazonner.Name);
+                                selectedCustomer = bangazonner;
+
+                            }
+                            else
+                            {
+                                Console.WriteLine(" " + bangazonner.Name);
+
+                            }
+                            counter++;
                     }
 
+                        keyInfo = Console.ReadKey();
+                        
+                        if (keyInfo.Key == ConsoleKey.UpArrow)
+                        {
+                            cursorIndex--;
+                        }
+                        else if (keyInfo.Key == ConsoleKey.DownArrow)
+                        {
+                            cursorIndex++;
+                        }
+                        if (keyInfo.Key == ConsoleKey.Enter)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Welcome" + selectedCustomer.Name);
+                            continueLooping = false;
+                        }
+                  }
 
+                    Console.WriteLine("outside loop test");
+                    Console.Clear();
                 }
                 else if (Command == "3")
                 {
