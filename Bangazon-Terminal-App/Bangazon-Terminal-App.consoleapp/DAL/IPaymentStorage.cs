@@ -11,7 +11,7 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
 {
     interface IPaymentStorage
     {
-        void AddPayment(int PaymentTypeID);
+        void AddPayment(string PaymentType, string AccountNumber);
         void GetPayment(int PaymentTypeID);
     }
 }
