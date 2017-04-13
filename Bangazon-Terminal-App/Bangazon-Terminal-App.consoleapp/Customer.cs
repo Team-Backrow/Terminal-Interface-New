@@ -13,7 +13,7 @@ namespace Bangazon_Terminal_App.consoleapp
 {
     public class Customer
     {
-        public Customer ActiveCustomer { get; set; }
+        public Customer activeCustomer { get; set; }
 
             [Key]
             public int CustomerID { get; set; }

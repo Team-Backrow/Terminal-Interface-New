@@ -53,7 +53,8 @@ namespace Bangazon_Terminal_App.consoleapp
                     var CustomerPhone = int.Parse(Console.ReadLine());
 
                     customerRepository.AddCustomer(CustomerName, CustomerAddress, CustomerCity, CustomerState, CustomerZip, CustomerPhone);
-                    
+                    activeCustomer.CustomerID;
+                    Console.WriteLine(activeCustomer.CustomerID); 
                 }
                 else if (Command == "2")
                 {
