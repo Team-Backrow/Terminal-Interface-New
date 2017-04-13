@@ -13,12 +13,8 @@ namespace Bangazon_Terminal_App.consoleapp
 {
     public class Customer
     {
-        IDbConnection _terminalConnection;
+        public Customer ActiveCustomer { get; set; }
 
-        public Customer()
-        {
-            _terminalConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
-        }    
             [Key]
             public int CustomerID { get; set; }
 

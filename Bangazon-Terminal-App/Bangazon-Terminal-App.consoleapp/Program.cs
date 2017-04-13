@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace Bangazon_Terminal_App.consoleapp
 {
-    class Program
+    public class Program
     {
+        Customer activeCustomer = new Customer();
+
         static void Main(string[] args)
         {
             while (true)
@@ -51,7 +53,7 @@ namespace Bangazon_Terminal_App.consoleapp
                     var CustomerPhone = int.Parse(Console.ReadLine());
 
                     customerRepository.AddCustomer(CustomerName, CustomerAddress, CustomerCity, CustomerState, CustomerZip, CustomerPhone);
-
+                    
                 }
                 else if (Command == "2")
                 {
@@ -125,7 +127,11 @@ namespace Bangazon_Terminal_App.consoleapp
                     Console.WriteLine("Enter Account Number");
                     var AccountNumber = Console.ReadLine();
 
-                    paymentRepository.AddPayment(PaymentType, AccountNumber);
+                   // paymentRepository.AddPayment(PaymentType, AccountNumber, selectedCustomer.CustomerID);
+
+                    new Customer();
+
+                    Console.WriteLine("Payment method has been added!");
                 }
                 else if (Command == "4")
                 {
