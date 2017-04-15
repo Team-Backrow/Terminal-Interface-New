@@ -9,7 +9,7 @@ namespace Bangazon_Terminal_App.consoleapp
 {
     public class Program
     {
-        static Customer activeCustomer = new Customer();
+        static Customer activeCustomer = null;
 
         static void Main(string[] args)
         {
@@ -18,9 +18,11 @@ namespace Bangazon_Terminal_App.consoleapp
                 Console.WriteLine("*******************************************************");
                 Console.WriteLine("** WELCOME TO BANGAZON! Command Line Ordering System **");
                 Console.WriteLine("*******************************************************");
-
-                Console.WriteLine("1.create a customer account");
-                Console.WriteLine("2.choose active customer");
+                if (activeCustomer == null) 
+                {
+                    Console.WriteLine("1.create a customer account");
+                    Console.WriteLine("2.choose active customer"); 
+                }
                 Console.WriteLine("3.create a payment option");
                 Console.WriteLine("4.add product to shopping cart");
                 Console.WriteLine("5.complete an order");
