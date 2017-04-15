@@ -9,7 +9,7 @@ namespace Bangazon_Terminal_App.consoleapp
 {
     public class Program
     {
-        Customer activeCustomer = new Customer();
+        static Customer activeCustomer = new Customer();
 
         static void Main(string[] args)
         {
@@ -53,7 +53,7 @@ namespace Bangazon_Terminal_App.consoleapp
                     var CustomerPhone = int.Parse(Console.ReadLine());
 
                     customerRepository.AddCustomer(CustomerName, CustomerAddress, CustomerCity, CustomerState, CustomerZip, CustomerPhone);
-                    activeCustomer.CustomerID;
+                    
                     Console.WriteLine(activeCustomer.CustomerID); 
                 }
                 else if (Command == "2")
@@ -78,13 +78,12 @@ namespace Bangazon_Terminal_App.consoleapp
 
                         Console.WriteLine(!(keyInfo.KeyChar.Equals(ConsoleKey.Enter)));
 
-                        Customer selectedCustomer = null;
                     foreach (var bangazonner in customerCollection)
                     {
                             if (counter == cursorIndex)
                             {
                                 Console.WriteLine(">" + bangazonner.Name);
-                                selectedCustomer = bangazonner;
+                                activeCustomer = bangazonner;
 
                             }
                             else
@@ -108,7 +107,7 @@ namespace Bangazon_Terminal_App.consoleapp
                         if (keyInfo.Key == ConsoleKey.Enter)
                         {
                             Console.Clear();
-                            Console.WriteLine("Welcome, " + selectedCustomer.Name + " Choose an option below!");
+                            Console.WriteLine("Welcome, " + activeCustomer.Name + " Choose an option below!");
                             continueLooping = false;
                         }
                   }
@@ -128,7 +127,7 @@ namespace Bangazon_Terminal_App.consoleapp
                     Console.WriteLine("Enter Account Number");
                     var AccountNumber = Console.ReadLine();
 
-                   // paymentRepository.AddPayment(PaymentType, AccountNumber, selectedCustomer.CustomerID);
+                    paymentRepository.AddPayment(PaymentType, AccountNumber, activeCustomer.CustomerID);
 
                     new Customer();
 

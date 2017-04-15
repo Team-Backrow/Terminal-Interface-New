@@ -19,7 +19,7 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
             _terminalConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         }
 
-        public void AddPayment(string PaymentType, string AccountNumber)
+        public void AddPayment(string PaymentType, string AccountNumber, int CustomerId)
         {
             _terminalConnection.Open();
 
@@ -37,8 +37,9 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
                 accountNumberParameter.Value = AccountNumber;
                 addPaymentCommand.Parameters.Add(accountNumberParameter);
 
-                //var getCurrentCustomerId = new SqlParameter("currentCustomerId", SqlDbType.Int);
-                //getCustomerCommand.CommandText = "SELECT CustomerID FROM Customer";
+                var CurrentCustomerId = new SqlParameter("customerid", SqlDbType.Int);
+                CurrentCustomerId.Value = CustomerId;
+                addPaymentCommand.Parameters.Add(CurrentCustomerId);
 
                 addPaymentCommand.ExecuteNonQuery();
             }
