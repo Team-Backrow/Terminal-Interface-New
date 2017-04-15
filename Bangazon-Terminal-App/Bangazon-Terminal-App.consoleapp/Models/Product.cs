@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace Bangazon_Terminal_App.consoleapp
 {
-    class Product
+    public class Products
     {
 
         public int ProductID { get; set; }
+
+        public string ProductName { get; set; }
 
         public int PaymentID  {get; set; }
 

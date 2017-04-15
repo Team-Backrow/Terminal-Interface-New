@@ -18,14 +18,39 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
             _terminalConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         }
 
-        public void AddProduct(int ProductID)
+
+        public Products AddProduct(int ProductId, string ProductName)
         {
             throw new NotImplementedException();
         }
 
-        public void GetProduct(int ProductID)
+        public List<Products> GetProducts()
         {
-            throw new NotImplementedException();
+            _terminalConnection.Open();
+
+            try
+            {
+                var getProductCommand = _terminalConnection.CreateCommand();
+                getProductCommand.CommandText = "SELECT * FROM Product";
+
+                var reader = getProductCommand.ExecuteReader();
+
+                var productList = new List<Products>();
+                while (reader.Read())
+                {
+                    var product = new Products
+                    {
+                        ProductID = reader.GetInt32(0),
+                        ProductName = reader.GetString(1)
+                    };
+                    productList.Add(product);
+                }
+                return productList;
+            }
+            finally
+            {
+                _terminalConnection.Close();
+            }
         }
     }
 }
