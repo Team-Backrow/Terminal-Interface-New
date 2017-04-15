@@ -18,14 +18,15 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
         {
             _terminalConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         }
-        public void AddPayment(string PaymentType, string AccountNumber)
+
+        public void AddPayment(string PaymentType, string AccountNumber, int CustomerId)
         {
             _terminalConnection.Open();
 
             try
             {
                 var addPaymentCommand = _terminalConnection.CreateCommand();
-                addPaymentCommand.CommandText = "Insert into PaymentType(PaymentType, AccountNumber, CustomerId) values(@type, @accountnum, @customer)";
+                addPaymentCommand.CommandText = "Insert into PaymentType(PaymentType, AccountNumber, CustomerId) values(@type, @accountnum, @customerid)";
 
 
                 var paymentTypeParameter = new SqlParameter("type", SqlDbType.VarChar);
@@ -36,6 +37,10 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
                 accountNumberParameter.Value = AccountNumber;
                 addPaymentCommand.Parameters.Add(accountNumberParameter);
 
+                var CurrentCustomerId = new SqlParameter("customerid", SqlDbType.Int);
+                CurrentCustomerId.Value = CustomerId;
+                addPaymentCommand.Parameters.Add(CurrentCustomerId);
+
                 addPaymentCommand.ExecuteNonQuery();
             }
             finally
@@ -43,6 +48,11 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
                 _terminalConnection.Close();
             }
 
+        }
+
+        public List<Customer> GetCustomers()
+        {
+            throw new NotImplementedException();
         }
 
         public void GetPayment(int PaymentTypeID)

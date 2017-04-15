@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Bangazon_Terminal_App.consoleapp.DAL
 {
-    interface ICustomerStorage
+    public interface ICustomerStorage
     {
-        void AddCustomer( string Name, string StreetAddress, string City, string State, int Zip, int Phone);
+        Customer AddCustomer( string Name, string StreetAddress, string City, string State, int Zip, int Phone);
 
-        List<Customer> GetCustomers();
+        List<Customer> GetCustomers(); 
 
+        
     }
 }

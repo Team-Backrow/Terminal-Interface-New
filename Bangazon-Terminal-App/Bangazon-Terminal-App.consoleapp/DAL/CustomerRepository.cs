@@ -12,6 +12,7 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
 {
     class CustomerRepository : ICustomerStorage
     {
+        Customer activeCustomer = new Customer();
 
         IDbConnection _terminalConnection;
 
@@ -21,7 +22,7 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
         }
 
 
-        public void AddCustomer( string Name, string StreetAddress, string City, string State, int Zip, int Phone)
+        public Customer AddCustomer( string Name, string StreetAddress, string City, string State, int Zip, int Phone)
 
         {
             _terminalConnection.Open();
@@ -29,7 +30,7 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
             try
             {
                 var addCustomerCommand = _terminalConnection.CreateCommand();
-                addCustomerCommand.CommandText = "Insert into Customer(Name, StreetAddress, City, State, Zip, Phone) values(@name, @address, @city, @state, @zip, @phone)";
+                addCustomerCommand.CommandText = "Insert into Customer(Name, StreetAddress, City, State, Zip, Phone) values(@name, @address, @city, @state, @zip, @phone) Select SCOPE_IDENTITY()";
 
 
                 var nameParameter = new SqlParameter("name", SqlDbType.VarChar);
@@ -56,7 +57,23 @@ namespace Bangazon_Terminal_App.consoleapp.DAL
                 phoneParameter.Value = Phone;
                 addCustomerCommand.Parameters.Add(phoneParameter);
 
-                addCustomerCommand.ExecuteNonQuery();
+                var reader = addCustomerCommand.ExecuteScalar();
+                if (reader != null)
+                {
+                    var id = reader.ToString();
+                     activeCustomer.CustomerID = Convert.ToInt32(id);
+                     activeCustomer.Name = Name;
+                    
+
+                    //Console.WriteLine("Your Name is " + userFirstName + userLastName);
+                    //Console.WriteLine("Your Address is " + userStreet);
+                    //Console.WriteLine(userCity + userState + userZipCode);
+
+                    Console.WriteLine("Record inserted successfully ID = " + id);
+                    //Console.WriteLine(_newCustomer.CustomerId);
+                }
+                return activeCustomer;
+
             }
             finally
             {
