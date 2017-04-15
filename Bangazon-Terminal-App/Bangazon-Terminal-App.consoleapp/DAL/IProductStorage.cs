@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 
 namespace Bangazon_Terminal_App.consoleapp.DAL
 {
-    interface IProductStorage
+    public interface IProductStorage
     {
-        void AddProduct(int ProductID);
-        void GetProduct(int ProductID);
+         Products AddProduct(int ProductId, string ProductName);
+         List<Products> GetProducts();
+
     }
 }
