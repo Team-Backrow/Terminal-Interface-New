@@ -136,6 +136,61 @@ namespace Bangazon_Terminal_App.consoleapp
                 else if (Command == "4")
                 {
                     //AddProductToOrder();
+                    var productRepository = new ProductRepository();
+
+                    Console.Clear();
+                    Console.WriteLine("Choose which customer will be active.");
+                    productRepository.GetProducts();
+
+                    var productCollection = productRepository.GetProducts();
+
+                    var cursorIndex = 0;
+                    var continueLooping = true;
+
+                    ConsoleKeyInfo keyInfo = new ConsoleKeyInfo();
+                    while (continueLooping)
+                    {
+                        int counter = 0;
+
+                        Console.Clear();
+
+                        Console.WriteLine(!(keyInfo.KeyChar.Equals(ConsoleKey.Enter)));
+
+                        foreach (var product in productCollection)
+                        {
+                            if (counter == cursorIndex)
+                            {
+                                Console.WriteLine(">" + product.ProductName);
+                                //activeCustomer = product;
+
+                            }
+                            else
+                            {
+                                Console.WriteLine(" " + product.ProductName);
+
+                            }
+                            counter++;
+                        }
+
+                        keyInfo = Console.ReadKey();
+
+                        if (keyInfo.Key == ConsoleKey.UpArrow)
+                        {
+                            cursorIndex--;
+                        }
+                        else if (keyInfo.Key == ConsoleKey.DownArrow)
+                        {
+                            cursorIndex++;
+                        }
+                        if (keyInfo.Key == ConsoleKey.Enter)
+                        {
+                            Console.Clear();
+                            continueLooping = false;
+                        }
+                    }
+
+                    Console.WriteLine(" ");
+
                 }
                 else if (Command == "5")
                 {
