@@ -14,6 +14,6 @@ namespace Bangazon_Terminal_App.consoleapp.Models
   
          public int ProductID { get; set; }
   
-         public int Quantity { get; set; }
+         public decimal Price { get; set; }
     }
 }
